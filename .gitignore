@@ -53,3 +53,15 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# test files
+main.c
+text.txt     
+output.txt
+
+# draw file
+*.tldr
+*.excalidraw
+
+# directorys
+.vscode/
