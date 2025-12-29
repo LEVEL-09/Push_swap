@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mkhoubaz <mkhoubaz@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/24 09:54:39 by mkhoubaz          #+#    #+#              #
-#    Updated: 2025/11/03 08:01:30 by mkhoubaz         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c \
@@ -32,6 +20,7 @@ all: $(NAME)
 
 bonus: $(NAME) $(OBJB)
 	ar rc $(NAME) $(OBJB)
+	mv $(NAME) ../
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
@@ -46,3 +35,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re
