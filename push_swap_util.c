@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/29 17:36:31 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2025/12/29 18:07:02 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include "Libft/libft.h"
+int	check_stack(int ac, char *av)
+{
+	static int	num;
 
-int push_swap(int ac, char **stack);
-
-#endif
+	if (*av >= '0', *av <= '9')
+		return (1);
+	return (0);
+}

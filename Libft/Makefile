@@ -20,7 +20,6 @@ all: $(NAME)
 
 bonus: $(NAME) $(OBJB)
 	ar rc $(NAME) $(OBJB)
-	mv $(NAME) ../
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)

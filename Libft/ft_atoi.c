@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhoubaz <mkhoubaz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:29:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/10/30 11:48:57 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/29 17:50:12 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static int	check_sp(char s)
 {
-	if (s == '\n' || s == '\t' || s == '\v'
-		|| s == '\f' || s == '\r' || s == ' ')
+	if (s == ' ') // only space
 		return (1);
 	return (0);
 }
