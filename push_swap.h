@@ -19,6 +19,7 @@
 #include "Printf/libftprintf.h"
 
 int push_swap(int ac, char **stack);
-int	check_stack(int ac, char *av);
+int	validate_stack(char *av);
+int	check_double(int *p, int size);
 
 #endif
