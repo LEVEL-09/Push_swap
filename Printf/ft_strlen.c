@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/29 18:07:02 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2025/11/05 13:36:10 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2025/11/11 09:34:21 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libftprintf.h"
 
-int	check_stack(int ac, char *av)
+size_t	ft_strlen(const char *s)
 {
-	(void)ac;
-	if (*av >= '0' && *av <= '9')
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

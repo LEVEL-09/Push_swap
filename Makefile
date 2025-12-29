@@ -1,6 +1,6 @@
 NAME = push_swap.a
 
-SRCS = push_swap.c
+SRCS = push_swap.c push_swap_util.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -12,18 +12,21 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make bonus -C Libft/
+	make -C Printf/
 	ar rc $(NAME) $(OBJS)
 
-%.o: %.c push_swap.a
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make clean -C Libft/
+	make clean -C Printf/
 	rm -f $(OBJS)
 
 fclean: clean
 	make fclean -C Libft/
-	rm -f $(NAME) libft.a
+	make fclean -C Printf/
+	rm -f $(NAME)
 
 re: fclean all
 

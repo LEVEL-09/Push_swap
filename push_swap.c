@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-#include <stdio.h>
 int	push_swap(int ac, char **stack)
 {
 	int	i;
@@ -21,6 +20,11 @@ int	push_swap(int ac, char **stack)
 	i = 1;
 	while (ac-- > 1)
 	{
+		if (!(check_stack(ac, *stack)))
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
 		result = ft_atoi((const char*)*(stack+i++));
 		printf("%d\n", result);
 	}

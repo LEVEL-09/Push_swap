@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util.c                                   :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/29 18:07:02 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2025/10/15 15:47:51 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2025/11/06 15:14:58 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libftprintf.h"
 
-int	check_stack(int ac, char *av)
+int	ft_toupper(int c)
 {
-	(void)ac;
-	if (*av >= '0' && *av <= '9')
-		return (1);
-	return (0);
+	return (c - 32 * (c >= 97 && c <= 122));
 }

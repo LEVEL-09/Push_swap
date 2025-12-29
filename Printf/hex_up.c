@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util.c                                   :+:      :+:    :+:   */
+/*   hex_up.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/29 18:07:02 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2025/11/06 15:02:26 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2025/11/08 09:16:04 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libftprintf.h"
 
-int	check_stack(int ac, char *av)
+void	hex_up(unsigned int n, int *cont)
 {
-	(void)ac;
-	if (*av >= '0' && *av <= '9')
-		return (1);
-	return (0);
+	char	*hextab;
+
+	hextab = "0123456789abcdef";
+	if (n / 16 != 0)
+	{
+		hex_up(n / 16, cont);
+	}
+	n = ft_toupper(hextab[n % 16]);
+	*cont += write(1, &n, 1);
 }
