@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/30 09:35:23 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/30 17:16:28 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	validate_stack(char *av)
 	while (av[i])
 	{
 		if (!(ft_isdigit(av[i])))
-			return (0);
+			exit(0);
 		i++;
 	}
 	return (1);
 }
+
 int	check_double(int *p, int size)
 {
 	int	i;
