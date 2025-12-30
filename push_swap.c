@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/30 12:07:50 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:30:24 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ int	push_swap(int ac, char **stack)
 		exit(1);
 	while (ac-- > 1)
 	{
-		if ((!validate_stack(*(stack+i))))
-			return (free(p), ft_printf("Error\n"), 1);
+		validate_stack(*(stack+i), p);
 		p[i - 1] = ft_atoi((const char*)*(stack+i));
 		i++;
 	}
-	if (check_double(p, old_ac))
-		return (free(p), ft_printf("Error\n"), 1);
+	check_double(p, old_ac);
 	return (0);
 }
