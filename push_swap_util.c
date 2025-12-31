@@ -6,15 +6,15 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/30 18:33:06 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/31 13:30:33 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	validate_stack(char *av, int *p)
+int	validate_stack(char *av)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (av[i] == '-' || av[i] == '+')
@@ -23,7 +23,6 @@ int	validate_stack(char *av, int *p)
 	{
 		if (!(ft_isdigit(av[i])))
 		{
-			free(p);
 			ft_printf("Error\n");
 			exit(1);
 		}

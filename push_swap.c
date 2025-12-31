@@ -6,29 +6,34 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/30 18:30:24 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/31 13:58:04 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(int ac, char **stack)
+int	push_swap(int ac, char **av)
 {
-	int	i;
-	int	*p;
-	int	old_ac;
+	// All this can be in other file
+	t_list *HEAD;
+	char	**args;
+	int		i;
+	int		temp;
 
 	i = 1;
-	old_ac = ac - 1;
-	p = malloc(sizeof(int) * (ac - 1));
-	if (!p)
-		exit(1);
-	while (ac-- > 1)
+	HEAD = ft_lstnew(0);
+	while (i < ac)
 	{
-		validate_stack(*(stack+i), p);
-		p[i - 1] = ft_atoi((const char*)*(stack+i));
-		i++;
+		args = ft_split(*(av + i++), ' ');
+		while (*args)
+		{
+			validate_stack(*args); 
+			temp = ft_atoi((const char *)*args);
+			if (!(HEAD->content))
+				HEAD->content = temp;
+			args += 1;
+		}
 	}
-	check_double(p, old_ac);
-	return (0);
+	printf("%d\n", HEAD->content);
+	return (1);
 }
