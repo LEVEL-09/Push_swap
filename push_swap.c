@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/31 13:58:04 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/31 17:32:46 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	push_swap(int ac, char **av)
 	int		temp;
 
 	i = 1;
-	HEAD = ft_lstnew(0);
+	HEAD = 	NULL;
+	if (ac == 1)
+		return (1);
 	while (i < ac)
 	{
 		args = ft_split(*(av + i++), ' ');
@@ -29,11 +31,14 @@ int	push_swap(int ac, char **av)
 		{
 			validate_stack(*args); 
 			temp = ft_atoi((const char *)*args);
-			if (!(HEAD->content))
-				HEAD->content = temp;
+			if (!HEAD)
+			{
+				HEAD->content = &temp;
+			}
 			args += 1;
 		}
 	}
-	printf("%d\n", HEAD->content);
+	int *x = HEAD->content;
+	printf("{%d}\n", *x);
 	return (1);
 }
