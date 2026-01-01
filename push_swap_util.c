@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/31 13:30:33 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2025/12/31 23:35:33 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ int	validate_stack(char *av)
 	int		i;
 
 	i = 0;
+	if (!av)
+		return (ft_printf("Error\n"), exit(1), 555);
 	if (av[i] == '-' || av[i] == '+')
 		i++;
 	while (av[i])
 	{
 		if (!(ft_isdigit(av[i])))
-		{
-			ft_printf("Error\n");
-			exit(1);
-		}
+			return (ft_printf("Error\n"), exit(1), 555);
 		i++;
 	}
 	return (1);
