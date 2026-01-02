@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/31 14:13:34 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/01 04:44:19 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include "Libft/libft.h"
 #include "Printf/libftprintf.h"
 
-int push_swap(int ac, char **stack);
-int	validate_stack(char *av);
-int	check_double(int *p, int size);
+int		push_swap(int ac, char **stack);
+void	validate_stack(char *av);
+void	check_double(t_list *head, int temp);
 
 #endif

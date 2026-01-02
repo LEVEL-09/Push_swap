@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/01 02:22:53 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/01 04:00:52 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	push_swap(int ac, char **av)
 				head = ft_lstnew(temp);
 			else
 			{
+				check_double(head, temp);
 				new = ft_lstnew(temp);
 				ft_lstadd_back(&head, new);
 			}
