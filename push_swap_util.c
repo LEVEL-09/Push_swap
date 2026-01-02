@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 09:02:32 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:23:35 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,16 @@ void	check_double(t_list *head, int temp)
 			return (ft_printf("Error\n"), exit(1));
 		head = head->next;
 	}
+}
+
+t_list	*ft_lstlast_before(t_list *lst)
+{
+	int	i;
+
+	i = ft_lstsize(lst) - 1;
+	while (i-- > 1)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

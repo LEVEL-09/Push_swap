@@ -3,7 +3,7 @@
 * [✓] Validate stack
 * [✓] Create stack a
 * [✓] Create stack b
-* [ ] Create moves
+* [✓] Create moves
 * [ ] Use algo
 * [ ] Free leaks
 * [ ] Fix norminette

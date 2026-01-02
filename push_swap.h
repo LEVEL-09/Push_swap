@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 10:46:18 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:23:44 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 #include "Printf/libftprintf.h"
 
 void	swap(t_list *element);
+void	rotate(t_list **head);
+void	reverse(t_list **head);
 void	validate_stack(char *av);
+t_list	*ft_lstlast_before(t_list *lst);
 int		push_swap(int ac, char **stack);
 void	push(t_list **dst, t_list **src);
 void	check_double(t_list *head, int temp);
