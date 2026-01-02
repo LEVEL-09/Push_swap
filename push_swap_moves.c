@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_util.c                                   :+:      :+:    :+:   */
+/*   push_swap_moves.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 09:02:32 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2026/01/02 08:49:54 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2026/01/02 11:06:12 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	validate_stack(char *av)
+void	swap(t_list *element)
 {
-	int		i;
-
-	i = 0;
-	if (!av)
-		return (ft_printf("Error\n"), exit(1));
-	if (av[i] == '-' || av[i] == '+')
-		i++;
-	while (av[i])
-	{
-		if (!(ft_isdigit(av[i])))
-			return (ft_printf("Error\n"), exit(1));
-		i++;
-	}
+	int	temp;
+	
+	if (!element || !(element->next))
+		return ;
+	temp = element->content;
+	element->content = element->next->content;
+	element->next->content = temp;
 }
 
-void	check_double(t_list *head, int temp)
+void	push(t_list **dst, t_list **src)
 {
-	while (head)
-	{
-		if (head->content == temp)
-			return (ft_printf("Error\n"), exit(1));
-		head = head->next;
-	}
+	t_list	*temp;
+
+	if (!src || !(*src))
+		return ;
+	temp = (*src)->next;
+	ft_lstadd_front(dst, *src);
+	*src = temp;
 }
