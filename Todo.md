@@ -5,8 +5,8 @@
 * [✓] Create stack b
 * [✓] Create moves
 * [ ] Use algo
-	* [ ] 3 random numbers
-	* [ ] 5 random numbers
+  * [✓] 3 random numbers
+  * [ ] 5 random numbers
 * [ ] Free leaks
 * [ ] Fix norminette
 * [ ] Create checker

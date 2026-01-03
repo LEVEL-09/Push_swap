@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/03 18:48:41 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:32:18 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	push_swap(int ac, char **av)
 		}
 	}
 	if (ft_lstsize(head_a) == 3 || ft_lstsize(head_a) == 2)
-		sort_3(&head_a);
+		sort_3(&head_a, &head_b);
 	while (head_a)
 	{
 		printf("%d\n", head_a->content);

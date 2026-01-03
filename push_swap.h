@@ -20,12 +20,12 @@
 
 void	swap(t_list *element);
 void	rotate(t_list **head);
-void	sort_3(t_list	**head);
-void	reverse_rotate(t_list **head);
 void	validate_stack(char *av);
+void	reverse_rotate(t_list **head);
 t_list	*ft_lstlast_before(t_list *lst);
 int		push_swap(int ac, char **stack);
 void	push(t_list **dst, t_list **src);
 void	check_double(t_list *head, int temp);
+void	sort_3(t_list **head_a, t_list **head_b);
 
 #endif

@@ -12,27 +12,34 @@
 
 #include "push_swap.h"
 
-void	sort_3(t_list	**head)
+void	sort_3(t_list **head_a, t_list **head_b)
 {
 	t_list	*last;
 
-	last = ft_lstlast(*head);
-	if ((*head)->next->content > last->content)
+	if (ft_lstsize(*head_a) == 2 && (*head_a)->content > (*head_a)->next->content)
 	{
-		reverse_rotate(head);
-		ft_printf("rra\n");
+		swap(*head_a);
+		printf("sa\n");
+		return ;
 	}
-	if ((*head)->content > (*head)->next->content)
+	last = ft_lstlast(*head_a);
+	if ((*head_a)->content > (*head_a)->next->content)
 	{
-		swap(*head);
-		ft_printf("sa\n");
+		swap(*head_a);
+		printf("sa\n");
 	}
-	else if ((*head)->next->content > last->content)
+	if ((*head_a)->next->content > last->content)
 	{
-		swap(*head);
-		ft_printf("sa\n");
-		rotate(head);
-		ft_printf("ra\n");
+		push(head_b, head_a);
+		printf("pb\n");
+		swap(*head_a);
+		printf("sa\n");
+		push(head_a, head_b);
+		printf("pa\n");
 	}
-	
+	if ((*head_a)->content > (*head_a)->next->content)
+	{
+		swap(*head_a);
+		printf("sa\n");
+	}
 }
