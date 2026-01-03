@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 15:23:44 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/03 18:50:06 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 
 void	swap(t_list *element);
 void	rotate(t_list **head);
-void	reverse(t_list **head);
+void	sort_3(t_list	**head);
+void	reverse_rotate(t_list **head);
 void	validate_stack(char *av);
 t_list	*ft_lstlast_before(t_list *lst);
 int		push_swap(int ac, char **stack);

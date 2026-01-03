@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:49:54 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 15:27:23 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/03 18:34:02 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	rotate(t_list **head)
 	temp->next = NULL;
 }
 
-void	reverse(t_list **head)
+void	reverse_rotate(t_list **head)
 {
 	t_list	*last;
 	t_list	*temp;
