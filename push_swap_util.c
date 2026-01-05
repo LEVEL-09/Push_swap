@@ -67,44 +67,51 @@ int	find(t_list **array, t_list *node)
 void	set_index(t_list *node)
 {
 	int		i;
-	int		j;
-	int		min_number;
-	t_list	*temp;
-	t_list	*store;
-	t_list	**array;
+	int		tmp;
+	int		size;
+	t_list *temp;
+	t_list *node_cp;
 
-	store = node;
 	i = 0;
-	j = ft_lstsize(node);
-	array = (t_list **)calloc(sizeof(t_list *), j + 1);
-	if (!array)
-		return ;
-	temp = node;
-	while (j)
+	size = ft_lstsize(node) - 1;
+	node_cp = ft_lstmap(node);
+	temp = node_cp;
+	while (size)
 	{
-		min_number = node->content;
-		while (node)
+		i = size;
+		while (i)
 		{
-			if (!(node->next))
+			if (temp->next == NULL)
 				break ;
-			node = node->next;
-			if (min_number > node->content && find(array, node))
+			if (temp->content > temp->next->content)
 			{
-				// printf("{%d}\n", store->content);
-				printf("{%d}\n", min_number);
-				store = node;
-				// printf("{%d}\n", store->content);
-				min_number = node->content;
-				printf("{%d}\n", min_number);
+				tmp = temp->content;
+				temp->content = temp->next->content;
+				temp->next->content = tmp;
 			}
+			temp = temp->next;
+			i--;
 		}
-		if (store)
-			store->index = i;
-		printf("val:%d\n", store->content);
-		printf("ind:%d\n", store->index);
-		*(array + i++) = store;
-		node = temp;
-		j--;
+		temp = node_cp;
+		size--;
 	}
-	// printf("{%d}\n", temp->index);
+	temp = node_cp;
+	while (temp)
+	{
+		temp->index = size;
+		temp = temp->next;
+		size++;
+	}
+	temp = node_cp;
+	while (node)
+	{
+		node_cp = temp;
+		while(node_cp)
+		{
+			if (node_cp->content == node->content)
+				node->index = node_cp->index;
+			node_cp = node_cp->next;
+		}
+		node = node->next;
+	}
 }
