@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:45:01 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 08:33:27 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/05 09:36:15 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 

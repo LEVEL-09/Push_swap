@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/04 10:08:17 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:18:14 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,53 @@ t_list	*ft_lstlast_before(t_list *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+
+int	find(t_list **array, t_list *node)
+{
+	if (!(*array))
+		return (1);
+	while (*array)
+	{
+		if (*array == node)
+			return (0);
+		*(array++);
+	}
+	return (1);
+}
+
+void	set_index(t_list *node)
+{
+	int		i;
+	int		j;
+	int		min_number;
+	t_list	*temp;
+	t_list	*store;
+	t_list	**array;
+
+	i = 0;
+	j = ft_lstsize(node);
+	array = (t_list **)calloc(sizeof(t_list *), j + 1);
+	if (!array)
+		return (NULL);
+	while (j)
+	{
+		temp = node;
+		min_number = node->content;
+		while (node)
+		{
+			if (!(node->next))
+				break ;
+			node = node->next;
+			if (min_number > node->content && find(array, node))
+			{
+				store = node;
+				min_number = node->content;
+			}
+		}
+		store->index = i;
+		*(array + i++) = store;
+		node = temp;
+		j--;
+	}
 }

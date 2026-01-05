@@ -10,5 +10,6 @@
   * [ ] 100 random numbers
   * [ ] 500 random numbers
 * [ ] Free leaks
+* [ ] Handel overflow
 * [ ] Fix norminette
 * [ ] Create checker

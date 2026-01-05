@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/04 11:26:59 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/05 10:35:03 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	push_swap(int ac, char **av)
 		sort_3(&head_a, &head_b);
 	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
 		sort_5(&head_a, &head_b);
+	set_index(head_a);
 	while (head_a)
 	{
 		ft_printf("%d\n", head_a->content);
