@@ -6,8 +6,9 @@
 * [✓] Create moves
 * [ ] Use algo
   * [✓] 3 random numbers
-  * [?] Set index
+  * [✓] Set index
   * [?] 5 random numbers
+  * [ ] check stack b after psuh
   * [ ] 100 random numbers
   * [ ] 500 random numbers
 * [ ] Free leaks

@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:49:54 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/03 18:34:02 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/05 21:12:01 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 void	swap(t_list *element)
 {
 	int	temp;
+	int	ind_tmp;
 	
 	if (!element || !(element->next))
 		return ;
 	temp = element->content;
 	element->content = element->next->content;
 	element->next->content = temp;
+
+	ind_tmp = element->index;
+	element->index = element->next->index;
+	element->next->index = ind_tmp;
 }
 
 void	push(t_list **dst, t_list **src)
