@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/05 12:18:14 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:29:28 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	find(t_list **array, t_list *node)
 	{
 		if (*array == node)
 			return (0);
-		*(array++);
+		array++;
 	}
 	return (1);
 }
@@ -73,14 +73,15 @@ void	set_index(t_list *node)
 	t_list	*store;
 	t_list	**array;
 
+	store = node;
 	i = 0;
 	j = ft_lstsize(node);
 	array = (t_list **)calloc(sizeof(t_list *), j + 1);
 	if (!array)
-		return (NULL);
+		return ;
+	temp = node;
 	while (j)
 	{
-		temp = node;
 		min_number = node->content;
 		while (node)
 		{
@@ -89,13 +90,21 @@ void	set_index(t_list *node)
 			node = node->next;
 			if (min_number > node->content && find(array, node))
 			{
+				// printf("{%d}\n", store->content);
+				printf("{%d}\n", min_number);
 				store = node;
+				// printf("{%d}\n", store->content);
 				min_number = node->content;
+				printf("{%d}\n", min_number);
 			}
 		}
-		store->index = i;
+		if (store)
+			store->index = i;
+		printf("val:%d\n", store->content);
+		printf("ind:%d\n", store->index);
 		*(array + i++) = store;
 		node = temp;
 		j--;
 	}
+	// printf("{%d}\n", temp->index);
 }
