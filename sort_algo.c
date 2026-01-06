@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:09:00 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 16:35:22 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/06 19:13:33 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	sort_4(t_list **head_a, t_list **head_b, int flag)
 	int	i;
 
 	i = find_position(*head_a, 0);
+	printf("%d %d\n", (*head_a)->content, i);
 	if (i == 1)
 	{
 		rotate(head_a);
