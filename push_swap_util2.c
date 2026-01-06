@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_uti2.c                                   :+:      :+:    :+:   */
+/*   push_swap_util2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:18:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 12:26:33 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:35:05 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ int	top_or_down(int postion, int size)
 		return (0); // rr
 	else
 		return (1); // r
+}
+
+int	is_sort(t_list *head_a)
+{
+	int	i;
+
+	i = 0;
+	while (head_a)
+	{
+		if (i++ != head_a->index)
+			return (1);
+		head_a = head_a->next;
+	}
+	return (0);
 }

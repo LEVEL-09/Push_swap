@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 12:31:17 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:06:00 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 void	swap(t_list *element);
 void	rotate(t_list **head);
 int		sort_3(t_list **head_a);
+int		is_sort(t_list *head_a);
 void	set_index(t_list *node);
 void	validate_stack(char *av);
 void	reverse_rotate(t_list **head);
