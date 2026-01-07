@@ -11,8 +11,9 @@
   * [✓] check stack b after push
   * [ ] 100 random numbers
   * [ ] 500 random numbers
+* [ ] Add printf to move functions
 * [ ] Free leaks
 * [✓] Handel overflow
-* [ ] makefile execute file push swap
+* [ ] Makefile execute file push swap
 * [ ] Fix norminette and libft
 * [ ] Create checker
