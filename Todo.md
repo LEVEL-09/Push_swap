@@ -7,7 +7,7 @@
 * [ ] Use algo
   * [✓] 3 random numbers
   * [✓] Set index
-  * [ ] 5 random numbers
+  * [✓] 5 random numbers
   * [?] check stack b after push
   * [ ] 100 random numbers
   * [ ] 500 random numbers
