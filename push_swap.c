@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 19:05:20 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:03:22 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	push_swap(int ac, char **av)
 	{
 		args = ft_split(*(av + i++), ' ');
 		if (!(*args))
-			exit(1);
+			return (ft_printf("Error\n"), exit(1), 1);
 		while (*args)
 		{
 			validate_stack(*args); 

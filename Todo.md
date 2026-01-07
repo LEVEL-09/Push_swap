@@ -8,10 +8,11 @@
   * [✓] 3 random numbers
   * [✓] Set index
   * [ ] 5 random numbers
-  * [?] check stack b after psuh
+  * [?] check stack b after push
   * [ ] 100 random numbers
   * [ ] 500 random numbers
 * [ ] Free leaks
-* [ ] Handel overflow
-* [ ] Fix norminette
+* [✓] Handel overflow
+* [ ] makefile execute file push swap
+* [ ] Fix norminette and libft
 * [ ] Create checker

@@ -6,11 +6,12 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:29:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 08:43:54 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/07 10:05:11 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../push_swap.h"
 
 static int	check_sp(char s)
 {
@@ -19,19 +20,19 @@ static int	check_sp(char s)
 	return (0);
 }
 
-static int	ft_overflow(int neg)
+static int ft_overflow(int neg, int cont)
 {
-	if (neg < 0)
-		return (0);
-	return (-1);
+	if (cont == -2147483648 && neg == -1)
+		return (-2147483648);
+	return (ft_printf("Error\n"), exit(1), 1);
 }
 
 int	ft_atoi(const char *str)
 {
 	int		i;
 	int		neg;
-	long	cont;
-	long	overflow;
+	int		cont;
+	int		overflow;
 
 	i = 0;
 	neg = 1;
@@ -49,7 +50,7 @@ int	ft_atoi(const char *str)
 		cont *= 10;
 		cont = cont + (str[i] - '0');
 		if (overflow != cont / 10)
-			return (ft_overflow(neg));
+			return (ft_overflow(neg, cont));
 		i++;
 	}
 	return (cont * neg);
