@@ -9,8 +9,9 @@
   * [✓] Set index
   * [✓] 5 random numbers
   * [✓] check stack b after push
-  * [ ] 100 random numbers
-  * [ ] 500 random numbers
+  * [✓] 100 random numbers
+  * [✓] 500 random numbers
+* [ ] Fix push swap bug
 * [ ] Add printf to move functions
 * [ ] Free leaks
 * [✓] Handel overflow

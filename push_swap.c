@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/07 16:39:30 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:36:43 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ int	push_swap(int ac, char **av)
 		sort_5(&head_a, &head_b);
 	else
 		chunk_sort(&head_a, &head_b);
-	print_stacks(head_a, head_b);
+	// print_stacks(head_a, head_b);
 	return (0);
 }

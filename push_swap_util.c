@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/07 10:35:21 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/09 10:40:04 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,6 @@ t_list	*ft_lstlast_before(t_list *lst)
 		lst = lst->next;
 	}
 	return (lst);
-}
-
-int	find(t_list **array, t_list *node)
-{
-	if (!(*array))
-		return (1);
-	while (*array)
-	{
-		if (*array == node)
-			return (0);
-		array++;
-	}
-	return (1);
 }
 
 void	set_index(t_list *node)
