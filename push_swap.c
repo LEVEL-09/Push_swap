@@ -79,9 +79,9 @@ int	push_swap(int ac, char **av)
 	if (!is_sort(head_a))
 		return (1);
 	if (ft_lstsize(head_a) == 3 || ft_lstsize(head_a) == 2)
-		sort_3(&head_a);
+		sort_three_elements(&head_a);
 	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
-		sort_5(&head_a, &head_b);
+		sort_five_elements(&head_a, &head_b);
 	else
 		chunk_sort(&head_a, &head_b);
 	// print_stacks(head_a, head_b);

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	sort_3(t_list **head_a)
+int	sort_three_elements(t_list **head_a)
 {
 	if (ft_lstsize(*head_a) == 2 && (*head_a)->content > (*head_a)->next->content)
 		return (swap(*head_a), ft_printf("sa\n"), 1);
@@ -42,7 +42,7 @@ int	sort_3(t_list **head_a)
 	return (0);
 }
 
-int	sort_4(t_list **head_a, t_list **head_b, int flag)
+int	sort_four_elements(t_list **head_a, t_list **head_b, int flag)
 {
 	int	i;
 
@@ -79,21 +79,21 @@ int	sort_4(t_list **head_a, t_list **head_b, int flag)
 	}
 	push(head_b, head_a);
 	ft_printf("pb\n");
-	sort_3(head_a);
+	sort_three_elements(head_a);
 	push(head_a, head_b);
 	ft_printf("pa\n");
 	return (1);
 }
 
-int	sort_5(t_list **head_a, t_list **head_b)
+int	sort_five_elements(t_list **head_a, t_list **head_b)
 {
 	if (ft_lstsize(*head_a) == 4)
 	{
-		sort_4(head_a, head_b, 0);
+		sort_four_elements(head_a, head_b, 0);
 		return (1);
 	}
-	sort_4(head_a, head_b, 1);
-	sort_4(head_a, head_b, 0);
+	sort_four_elements(head_a, head_b, 1);
+	sort_four_elements(head_a, head_b, 0);
 	push(head_a, head_b);
 	ft_printf("pa\n");
 	return (1);

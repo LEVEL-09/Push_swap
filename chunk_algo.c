@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	set_chunksize(int size)
+int	calculate_chunk_size(int size)
 {
 	if (size <= 100)
 		return (13);
@@ -59,12 +59,16 @@ void	chunk_stack_b(t_list **head_a, t_list **head_b, int size)
 
 void	chunk_sort(t_list **head_a, t_list **head_b)
 {
-	chunk chunky;
+	int		rr_r;
+	int		small;
+	chunk	chunky;
 
 	chunky.chunk_start = 0;
-	chunky.chunk_end = set_chunksize(ft_lstsize(*head_a));
+	chunky.chunk_end = calculate_chunk_size(ft_lstsize(*head_a));
 	while (*head_a)
 	{
+		small = find_position(*head_a, chunky.chunk_start);
+		rr_r = top_or_down(small, ft_lstsize(*head_a));
 		if ((*head_a)->index <= chunky.chunk_start)
 		{
 			push(head_b, head_a);
@@ -75,14 +79,25 @@ void	chunk_sort(t_list **head_a, t_list **head_b)
 		{
 			push(head_b, head_a);
 			ft_printf("pb\n");
-			rotate(head_b);
-			ft_printf("rb\n");
+			if (*head_b)
+			{
+				rotate(head_b);
+				ft_printf("rb\n");
+			}
 			chunky.chunk_start++;
 		}
 		else
 		{
-			rotate(head_a);
-			ft_printf("ra\n");
+			if (rr_r)
+			{
+				rotate(head_a);
+				ft_printf("ra\n");
+			}
+			else
+			{
+				reverse_rotate(head_a);
+				ft_printf("rra\n");
+			}
 		}
 	}
 	chunk_stack_b(head_a, head_b, ft_lstsize(*head_b));

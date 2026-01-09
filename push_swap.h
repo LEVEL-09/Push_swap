@@ -25,7 +25,7 @@ typedef struct {
 
 void	swap(t_list *element);
 void	rotate(t_list **head);
-int		sort_3(t_list **head_a);
+int		sort_three_elements(t_list **head_a);
 int		is_sort(t_list *head_a);
 void	set_index(t_list *node);
 void	validate_stack(char *av);
@@ -36,7 +36,7 @@ void	push(t_list **dst, t_list **src);
 int		top_or_down(int postion, int size);
 void	check_double(t_list *head, int temp);
 int 	find_position(t_list *head, int index);
-int		sort_5(t_list **head_a, t_list **head_b);
+int		sort_five_elements(t_list **head_a, t_list **head_b);
 void	chunk_sort(t_list **head_a, t_list **head_b);
 
 #endif
