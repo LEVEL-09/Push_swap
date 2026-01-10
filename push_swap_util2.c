@@ -6,16 +6,16 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:18:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 18:49:06 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/10 16:33:43 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int 	find_position(t_list *head, int index)
+int	find_position(t_list *head, int index)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (head)
 	{
@@ -33,9 +33,9 @@ int	top_or_down(int postion, int size)
 
 	result = size / 2;
 	if (postion >= result)
-		return (0); // rr
+		return (0);
 	else
-		return (1); // r
+		return (1);
 }
 
 int	is_sort(t_list *head_a)

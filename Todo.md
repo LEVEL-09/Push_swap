@@ -12,9 +12,10 @@
   * [✓] 100 random numbers
   * [✓] 500 random numbers
   * [ ] Fix push swap bug
-* [ ] Add printf to move functions
+* [✓] Add printf to move functions
 * [ ] Free leaks
 * [✓] Handel overflow
 * [ ] Makefile execute file push swap
 * [ ] Fix norminette and libft
 * [ ] Create checker
+* [ ] Add in checker rr ss rrr

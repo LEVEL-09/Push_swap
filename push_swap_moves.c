@@ -6,29 +6,29 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:49:54 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/06 18:13:18 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:58:02 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *element)
+void	swap(t_list *element, char c)
 {
 	int	temp;
 	int	ind_tmp;
-	
+
 	if (!element || !(element->next))
 		return ;
 	temp = element->content;
 	element->content = element->next->content;
 	element->next->content = temp;
-
 	ind_tmp = element->index;
 	element->index = element->next->index;
 	element->next->index = ind_tmp;
+	ft_printf("s%c\n", c);
 }
 
-void	push(t_list **dst, t_list **src)
+void	push(t_list **dst, t_list **src, char c)
 {
 	t_list	*temp;
 
@@ -37,9 +37,10 @@ void	push(t_list **dst, t_list **src)
 	temp = (*src)->next;
 	ft_lstadd_front(dst, *src);
 	*src = temp;
+	ft_printf("p%c\n", c);
 }
 
-void	rotate(t_list **head)
+void	rotate(t_list **head, char c)
 {
 	t_list	*temp;
 	t_list	*last;
@@ -51,9 +52,10 @@ void	rotate(t_list **head)
 	last->next = *head;
 	*head = (*head)->next;
 	temp->next = NULL;
+	ft_printf("r%c\n", c);
 }
 
-void	reverse_rotate(t_list **head)
+void	reverse_rotate(t_list **head, char c)
 {
 	t_list	*last;
 	t_list	*temp;
@@ -65,4 +67,5 @@ void	reverse_rotate(t_list **head)
 	last->next = *head;
 	*head = last;
 	temp->next = NULL;
+	ft_printf("rr%c\n", c);
 }

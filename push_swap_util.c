@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/09 10:40:04 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/10 11:56:31 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	validate_stack(char *av)
 
 	i = 0;
 	if (!av)
-		return (ft_printf("Error\n"), exit(1));
+		return (ft_printf("Error\n"), free(av), exit(1));
 	if (av[i] == '-' || av[i] == '+')
 		i++;
-	if(!av[i])
-		return (ft_printf("Error\n"), exit(1));
+	if (!av[i])
+		return (ft_printf("Error\n"), free(av), exit(1));
 	while (av[i])
 	{
 		if (!(ft_isdigit(av[i])))
@@ -36,7 +36,7 @@ void	check_double(t_list *head, int temp)
 	while (head)
 	{
 		if (head->content == temp)
-			return (ft_printf("Error\n"), exit(1));
+			return (ft_printf("Error\n"), free(head), exit(1));
 		head = head->next;
 	}
 }
@@ -58,8 +58,8 @@ void	set_index(t_list *node)
 	int		i;
 	int		tmp;
 	int		size;
-	t_list *temp;
-	t_list *node_cp;
+	t_list	*temp;
+	t_list	*node_cp;
 
 	i = 0;
 	size = ft_lstsize(node) - 1;
@@ -95,7 +95,7 @@ void	set_index(t_list *node)
 	while (node)
 	{
 		node_cp = temp;
-		while(node_cp)
+		while (node_cp)
 		{
 			if (node_cp->content == node->content)
 				node->index = node_cp->index;
@@ -103,4 +103,6 @@ void	set_index(t_list *node)
 		}
 		node = node->next;
 	}
+	free(temp);
+	free(node_cp);
 }
