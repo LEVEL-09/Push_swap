@@ -54,7 +54,7 @@ t_list	*ft_lstlast_before(t_list *lst)
 }
 
 void	set_index(t_list *node)
-{
+{ // change algo
 	int		i;
 	int		tmp;
 	int		size;

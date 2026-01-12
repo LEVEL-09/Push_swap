@@ -12,11 +12,38 @@
 
 #include "push_swap.h"
 
-int	sort_three_elements(t_list **head_a)
+void	find_smaller(t_list **head_a, t_list **head_b)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	rr_r;
+
+	i = find_position(*head_a, 0);
+	size = ft_lstsize(*head_a);
+	rr_r = top_or_down(i, size);
+	if (rr_r)
+	{
+		while (i--)
+			rotate(head_a, 'a');
+	}
+	else
+	{
+		j = size - i;
+		while (j--)
+			reverse_rotate(head_a, 'a');
+	}
+	push(head_b, head_a, 'b');
+}
+
+void	sort_three_elements(t_list **head_a)
 {
 	if (ft_lstsize(*head_a) == 2
 		&& (*head_a)->content > (*head_a)->next->content)
-		return (swap(*head_a, 'a'), 1);
+	{
+		swap(*head_a, 'a');
+		return ;
+	}
 	if ((*head_a)->content > (*head_a)->next->content)
 		swap(*head_a, 'a');
 	if ((*head_a)->content > (*head_a)->next->content
@@ -29,47 +56,23 @@ int	sort_three_elements(t_list **head_a)
 		reverse_rotate(head_a, 'a');
 		swap(*head_a, 'a');
 	}
-	return (0);
 }
 
-int	sort_four_elements(t_list **head_a, t_list **head_b, int flag)
+void	sort_four_elements(t_list **head_a, t_list **head_b)
 {
-	int	i;
-
-	i = find_position(*head_a, 0);
-	if (!flag)
-		i = find_position(*head_a, 1);
-	if (i == 1)
-		rotate(head_a, 'a');
-	else if (i == 2)
-	{
-		rotate(head_a, 'a');
-		rotate(head_a, 'a');
-	}
-	else if (i == 3 || i == 4)
-		reverse_rotate(head_a, 'a');
-	if (flag)
-	{
-		if (i == 3)
-			reverse_rotate(head_a, 'a');
-		push(head_b, head_a, 'b');
-		return (1);
-	}
-	push(head_b, head_a, 'b');
+	find_smaller(head_a, head_b);
 	sort_three_elements(head_a);
 	push(head_a, head_b, 'a');
-	return (1);
 }
 
-int	sort_five_elements(t_list **head_a, t_list **head_b)
+void	sort_five_elements(t_list **head_a, t_list **head_b)
 {
 	if (ft_lstsize(*head_a) == 4)
 	{
-		sort_four_elements(head_a, head_b, 0);
-		return (1);
+		sort_four_elements(head_a, head_b);
+		return ;
 	}
-	sort_four_elements(head_a, head_b, 1);
-	sort_four_elements(head_a, head_b, 0);
+	find_smaller(head_a, head_b);
+	sort_four_elements(head_a, head_b);
 	push(head_a, head_b, 'a');
-	return (1);
 }

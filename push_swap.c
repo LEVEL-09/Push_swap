@@ -13,34 +13,33 @@
 
 #include "push_swap.h"
 
-// void	print_stacks(t_list *a, t_list *b)
-// {
-// 	while (a || b)
-// 	{
-// 		if (a)
-// 		{
-// 			printf("%d", a->content);
-// 			a = a->next;
-// 		}
-// 		else
-// 			printf(" ");
+void	print_stacks(t_list *a, t_list *b)
+{
+	while (a || b)
+	{
+		if (a)
+		{
+			printf("%4d", a->content);
+			a = a->next;
+		}
+		else
+			printf("    ");
 
-// 		printf("   ");
+		printf("    "); 
 
-// 		if (b)
-// 		{
-// 			printf("%d", b->content);
-// 			b = b->next;
-// 		}
-// 		else
-// 			printf(" ");
+		if (b)
+		{
+			printf("%4d", b->content);
+			b = b->next;
+		}
+		else
+			printf("    ");
 
-// 		printf("\n");
-// 	}
-
-// 	printf("-   -\n");
-// 	printf("a   b\n");
-// }
+		printf("\n");
+	}
+	printf("----    ----\n");
+	printf("  a        b\n");
+}
 
 int	push_swap(int ac, char **av)
 {
@@ -87,6 +86,6 @@ int	push_swap(int ac, char **av)
 		sort_five_elements(&head_a, &head_b);
 	else
 		chunk_sort(&head_a, &head_b);
-	// print_stacks(head_a, head_b);
+	print_stacks(head_a, head_b);
 	return (0);
 }

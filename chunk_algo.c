@@ -49,60 +49,52 @@ void	chunk_stack_b(t_list **head_a, t_list **head_b, int size)
 	}
 }
 
-void	chunk_sort(t_list **head_a, t_list **head_b)
+void	fake_chunk_sort(t_list **head_a, t_list **head_b)
 {
-	int		rr_r;
-	int		small;
-	int		flag;
 	t_chunk	chunky;
 
 	chunky.chunk_start = 0;
-	flag = is_even_then_odd_desc(*head_a);
 	chunky.chunk_end = calculate_chunk_size(ft_lstsize(*head_a));
-	if (!flag)
+	while (*head_a)
 	{
-		while (*head_a)
+		if ((*head_a)->index <= chunky.chunk_start)
 		{
-			if ((*head_a)->index <= chunky.chunk_start)
-			{
-				push(head_b, head_a, 'b');
-				chunky.chunk_start++;
-			}
-			else if ((*head_a)->index <= chunky.chunk_start + chunky.chunk_end)
-			{
-				push(head_b, head_a, 'b');
-				rotate(head_b, 'b');
-				chunky.chunk_start++;
-			}
-			else
-				rotate(head_a, 'a');
+			push(head_b, head_a, 'b');
+			chunky.chunk_start++;
 		}
+		else if ((*head_a)->index <= chunky.chunk_start + chunky.chunk_end)
+		{
+			push(head_b, head_a, 'b');
+			rotate(head_b, 'b');
+			chunky.chunk_start++;
+		}
+		else
+			reverse_rotate(head_a, 'a');
 	}
-	else
+	chunk_stack_b(head_a, head_b, ft_lstsize(*head_b));
+}
+
+void	chunk_sort(t_list **head_a, t_list **head_b)
+{
+	t_chunk	chunky;
+
+	chunky.chunk_start = 0;
+	chunky.chunk_end = calculate_chunk_size(ft_lstsize(*head_a));
+	while (*head_a)
 	{
-		while (*head_a)
+		if ((*head_a)->index <= chunky.chunk_start)
 		{
-			small = find_position(*head_a, chunky.chunk_start);
-			rr_r = top_or_down(small, ft_lstsize(*head_a));
-			if ((*head_a)->index <= chunky.chunk_start)
-			{
-				push(head_b, head_a, 'b');
-				chunky.chunk_start++;
-			}
-			else if ((*head_a)->index <= chunky.chunk_start + chunky.chunk_end)
-			{
-				push(head_b, head_a, 'b');
-				rotate(head_b, 'b');
-				chunky.chunk_start++;
-			}
-			else
-			{
-				if (rr_r)
-					rotate(head_a, 'a');
-				else
-					reverse_rotate(head_a, 'a');
-			}
+			push(head_b, head_a, 'b');
+			chunky.chunk_start++;
 		}
+		else if ((*head_a)->index <= chunky.chunk_start + chunky.chunk_end)
+		{
+			push(head_b, head_a, 'b');
+			rotate(head_b, 'b');
+			chunky.chunk_start++;
+		}
+		else
+			rotate(head_a, 'a');
 	}
 	chunk_stack_b(head_a, head_b, ft_lstsize(*head_b));
 }
