@@ -124,7 +124,6 @@ ra
 ra
 ra
 ra
-ra
 pb
 rb
 ra
@@ -187,7 +186,6 @@ ra
 pb
 ra
 pb
-ra
 ra
 ra
 ra
@@ -242,7 +240,6 @@ rb
 pb
 rb
 pb
-rb
 ra
 pb
 ra
@@ -262,8 +259,6 @@ ra
 ra
 ra
 ra
-pb
-rb
 pb
 rb
 pb
@@ -486,7 +481,6 @@ rb
 rb
 rb
 pa
-rrb
 rrb
 rrb
 rrb
@@ -502,9 +496,7 @@ rb
 rb
 rb
 rb
-rb
 pa
-rrb
 rrb
 rrb
 rrb
@@ -516,9 +508,7 @@ rb
 rb
 rb
 rb
-rb
 pa
-rrb
 rrb
 rrb
 rrb
@@ -526,26 +516,11 @@ rrb
 pa
 rb
 rb
-rb
 pa
-rrb
 rrb
 rrb
 pa
-rb
-pa
-rrb
-pa
-rrb
-rrb
-rrb
-rrb
-rrb
 pa
-rb
-rb
-rb
-rb
 rb
 rb
 rb
@@ -591,6 +566,15 @@ rrb
 rrb
 pa
 pa
+rb
+rb
+rb
+rb
+pa
+rrb
+rrb
+rrb
+rrb
 rrb
 rrb
 rrb
@@ -823,5 +807,4 @@ pa
 pa
 rrb
 pa
-fake count:201
-count:825
+{809}

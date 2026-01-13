@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 08:29:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/02 08:32:59 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/13 21:31:12 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstmap(t_list *lst)
 	while (lst)
 	{
 		new = ft_lstnew(lst->content);
+		new->index = lst->index;
 		if (!new)
 			return (NULL);
 		ft_lstadd_back(&node_lst, new);

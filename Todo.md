@@ -11,11 +11,11 @@
   * [✓] check stack b after push
   * [✓] 100 random numbers
   * [✓] 500 random numbers
-  * [ ] Fix push swap bug
+  * [✓] Fix push swap bug
 * [✓] Add printf to move functions
 * [ ] Free leaks
 * [✓] Handel overflow
-* [ ] Makefile execute file push swap
+* [✓] Makefile execute file push swap
 * [ ] Fix norminette and libft
 * [ ] Create checker
 * [ ] Add in checker rr ss rrr
