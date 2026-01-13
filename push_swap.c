@@ -85,7 +85,12 @@ int	push_swap(int ac, char **av)
 	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
 		sort_five_elements(&head_a, &head_b);
 	else
-		chunk_sort(&head_a, &head_b);
-	print_stacks(head_a, head_b);
+		fake_or_not(&head_a, &head_b);
+	// print_stacks(head_a, head_b);
 	return (0);
+}
+
+int main(int ac, char **av)
+{
+	push_swap(ac, av);
 }

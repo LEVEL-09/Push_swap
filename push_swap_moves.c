@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:49:54 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 11:58:02 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:59:54 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	swap(t_list *element, char c)
 	ind_tmp = element->index;
 	element->index = element->next->index;
 	element->next->index = ind_tmp;
-	ft_printf("s%c\n", c);
+	if (c != 'x')
+		ft_printf("s%c\n", c);
 }
 
 void	push(t_list **dst, t_list **src, char c)
@@ -37,7 +38,8 @@ void	push(t_list **dst, t_list **src, char c)
 	temp = (*src)->next;
 	ft_lstadd_front(dst, *src);
 	*src = temp;
-	ft_printf("p%c\n", c);
+	if (c != 'x')
+		ft_printf("p%c\n", c);
 }
 
 void	rotate(t_list **head, char c)
@@ -52,7 +54,8 @@ void	rotate(t_list **head, char c)
 	last->next = *head;
 	*head = (*head)->next;
 	temp->next = NULL;
-	ft_printf("r%c\n", c);
+	if (c != 'x')
+		ft_printf("r%c\n", c);
 }
 
 void	reverse_rotate(t_list **head, char c)
@@ -67,5 +70,6 @@ void	reverse_rotate(t_list **head, char c)
 	last->next = *head;
 	*head = last;
 	temp->next = NULL;
-	ft_printf("rr%c\n", c);
+	if (c != 'x')
+		ft_printf("rr%c\n", c);
 }

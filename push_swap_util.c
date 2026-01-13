@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 11:56:31 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/13 21:00:30 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,55 +54,23 @@ t_list	*ft_lstlast_before(t_list *lst)
 }
 
 void	set_index(t_list *node)
-{ // change algo
-	int		i;
-	int		tmp;
-	int		size;
-	t_list	*temp;
-	t_list	*node_cp;
+{
+	int		j;
+	t_list	*tmp;
+	t_list	*node2;
 
-	i = 0;
-	size = ft_lstsize(node) - 1;
-	node_cp = ft_lstmap(node);
-	temp = node_cp;
-	while (size)
-	{
-		i = size;
-		while (i)
-		{
-			if (temp->next == NULL)
-				break ;
-			if (temp->content > temp->next->content)
-			{
-				tmp = temp->content;
-				temp->content = temp->next->content;
-				temp->next->content = tmp;
-			}
-			temp = temp->next;
-			i--;
-		}
-		temp = node_cp;
-		size--;
-	}
-	temp = node_cp;
-	while (temp)
-	{
-		temp->index = size;
-		temp = temp->next;
-		size++;
-	}
-	temp = node_cp;
+	tmp = node;
 	while (node)
 	{
-		node_cp = temp;
-		while (node_cp)
+		j = 0;
+		node2 = tmp;
+		while (node2)
 		{
-			if (node_cp->content == node->content)
-				node->index = node_cp->index;
-			node_cp = node_cp->next;
+			if (node->content > node2->content)
+				j++;
+			node2 = node2->next;
 		}
+		node->index = j;
 		node = node->next;
 	}
-	free(temp);
-	free(node_cp);
 }

@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 16:32:50 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/13 21:01:44 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ void	sort_three_elements(t_list **head_a);
 void	reverse_rotate(t_list **head, char c);
 int		find_position(t_list *head, int index);
 void	push(t_list **dst, t_list **src, char c);
-void	chunk_sort(t_list **head_a, t_list **head_b);
 void	sort_five_elements(t_list **head_a, t_list **head_b);
+
+int		fake_chunk_sort(t_list **head_a, t_list **head_b);
+void	fake_or_not(t_list **head_a, t_list **head_b);
+void	print_stacks(t_list *a, t_list *b);
+int		calculate_chunk_size(int size);
+
 
 #endif
