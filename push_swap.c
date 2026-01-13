@@ -13,54 +13,44 @@
 
 #include "push_swap.h"
 
-void	print_stacks(t_list *a, t_list *b)
-{
-	while (a || b)
-	{
-		if (a)
-		{
-			printf("%4d", a->content);
-			a = a->next;
-		}
-		else
-			printf("    ");
+// void	print_stacks(t_list *a, t_list *b)
+// {
+// 	while (a || b)
+// 	{
+// 		if (a)
+// 		{
+// 			printf("%4d", a->content);
+// 			a = a->next;
+// 		}
+// 		else
+// 			printf("    ");
 
-		printf("    "); 
+// 		printf("    "); 
 
-		if (b)
-		{
-			printf("%4d", b->content);
-			b = b->next;
-		}
-		else
-			printf("    ");
+// 		if (b)
+// 		{
+// 			printf("%4d", b->content);
+// 			b = b->next;
+// 		}
+// 		else
+// 			printf("    ");
 
-		printf("\n");
-	}
-	printf("----    ----\n");
-	printf("  a        b\n");
-}
+// 		printf("\n");
+// 	}
+// 	printf("----    ----\n");
+// 	printf("  a        b\n");
+// }
 
-int	push_swap(int ac, char **av)
+t_list	*check(t_list *head_a, int ac, char **av, int i)
 {
 	char	**args;
-	t_list	*head_a;
-	t_list	*head_b;
-	t_list	*new;
 	int		temp;
-	int		i;
 
-	i = 1;
-	head_a = NULL;
-	head_b = NULL;
-	new = NULL;
-	if (ac == 1)
-		return (0);
 	while (i < ac)
 	{
 		args = ft_split(*(av + i++), ' ');
 		if (!(*args))
-			return (ft_printf("Error\n"), free(*args), free(args), free(new), exit(1), 1);
+			return (ft_printf("Error\n"), free(args), exit(1), NULL);
 		while (*args)
 		{
 			validate_stack(*args); 
@@ -70,13 +60,25 @@ int	push_swap(int ac, char **av)
 			else
 			{
 				check_double(head_a, temp);
-				new = ft_lstnew(temp);
-				ft_lstadd_back(&head_a, new);
+				ft_lstadd_back(&head_a, ft_lstnew(temp));
 			}
 			args++;
 		}
 		free(*args);
 	}
+	return (head_a);
+}
+
+int	push_swap(int ac, char **av)
+{
+	t_list	*head_a;
+	t_list	*head_b;
+
+	head_a = NULL;
+	head_b = NULL;
+	if (ac == 1)
+		return (0);
+	head_a = check(head_a, ac, av, 1);
 	set_index(head_a);
 	if (!is_sort(head_a))
 		return (1);

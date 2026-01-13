@@ -16,7 +16,7 @@
 # include "Libft/libft.h"
 # include "Printf/libftprintf.h"
 
-# include <stdio.h>
+# include <stdio.h> // test
 
 typedef struct t_chunk{
 	int	chunk_start;
@@ -28,20 +28,18 @@ void	set_index(t_list *node);
 void	validate_stack(char *av);
 void	swap(t_list *element, char c);
 void	rotate(t_list **head, char c);
+int		calculate_chunk_size(int size);
 t_list	*ft_lstlast_before(t_list *lst);
 int		push_swap(int ac, char **stack);
 int		top_or_down(int postion, int size);
+void	print_stacks(t_list *a, t_list *b);
 void	check_double(t_list *head, int temp);
 void	sort_three_elements(t_list **head_a);
 void	reverse_rotate(t_list **head, char c);
 int		find_position(t_list *head, int index);
 void	push(t_list **dst, t_list **src, char c);
-void	sort_five_elements(t_list **head_a, t_list **head_b);
-
-int		fake_chunk_sort(t_list **head_a, t_list **head_b);
 void	fake_or_not(t_list **head_a, t_list **head_b);
-void	print_stacks(t_list *a, t_list *b);
-int		calculate_chunk_size(int size);
-
+int		fake_chunk_sort(t_list **head_a, t_list **head_b);
+void	sort_five_elements(t_list **head_a, t_list **head_b);
 
 #endif

@@ -4,7 +4,7 @@
 * [✓] Create stack a
 * [✓] Create stack b
 * [✓] Create moves
-* [ ] Use algo
+* [✓] Use algo
   * [✓] 3 random numbers
   * [✓] Set index
   * [✓] 5 random numbers

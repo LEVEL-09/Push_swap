@@ -1,3 +1,5 @@
+EXEC = push_swap
+
 NAME = push_swap.a
 
 SRCS = push_swap.c push_swap_util.c push_swap_moves.c sort_algo.c push_swap_util2.c \
@@ -9,12 +11,14 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+all: $(EXEC)
 
 $(NAME): $(OBJS)
 	make bonus -C Libft/
 	make -C Printf/
 	ar rc $(NAME) $(OBJS)
+
+$(EXEC): $(NAME)
 	cc push_swap.a Libft/libft.a Printf/libftprintf.a -o push_swap
 
 %.o: %.c push_swap.h
