@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:35:28 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/13 21:33:16 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 09:33:41 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int	fake_chunk_sort(t_list **copy_a, t_list **head_b)
 		}
 	}
 	fake_chunk_stack_b(&head_a, head_b, ft_lstsize(*head_b), &count);
-	return (count);
+	return (free_stack(head_a), count);
 }

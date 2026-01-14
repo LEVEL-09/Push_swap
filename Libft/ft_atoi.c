@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:29:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 11:38:55 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 11:08:51 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_overflow(int neg, int cont)
 {
 	if (cont == -2147483648 && neg == -1)
 		return (-2147483648);
-	return (ft_printf("Error\n"), exit(1), 1);
+	return (write(2, "Error\n", 6), exit(1), 1);
 }
 
 int	ft_atoi(const char *str)

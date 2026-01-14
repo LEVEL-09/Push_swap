@@ -41,16 +41,30 @@
 // 	printf("  a        b\n");
 // }
 
+void	free_stack(t_list *head_a)
+{
+	t_list	*tmp;
+
+	while (head_a)
+	{
+		tmp = head_a->next;
+		free(head_a);
+		head_a = tmp;
+	}
+}
+
 t_list	*check(t_list *head_a, int ac, char **av, int i)
 {
 	char	**args;
+	char	**ptr;
 	int		temp;
 
 	while (i < ac)
 	{
 		args = ft_split(*(av + i++), ' ');
-		if (!(*args))
-			return (ft_printf("Error\n"), free(args), exit(1), NULL);
+		if (!args || !(*args))
+			return (write(2, "Error\n", 6), exit(1), NULL);
+		ptr = args;
 		while (*args)
 		{
 			validate_stack(*args); 
@@ -62,9 +76,10 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 				check_double(head_a, temp);
 				ft_lstadd_back(&head_a, ft_lstnew(temp));
 			}
+			free(*args);
 			args++;
 		}
-		free(*args);
+		free(ptr);
 	}
 	return (head_a);
 }
@@ -81,7 +96,7 @@ int	push_swap(int ac, char **av)
 	head_a = check(head_a, ac, av, 1);
 	set_index(head_a);
 	if (!is_sort(head_a))
-		return (1);
+		return (free_stack(head_a), 0);
 	if (ft_lstsize(head_a) == 3 || ft_lstsize(head_a) == 2)
 		sort_three_elements(&head_a);
 	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
@@ -89,6 +104,7 @@ int	push_swap(int ac, char **av)
 	else
 		fake_or_not(&head_a, &head_b);
 	// print_stacks(head_a, head_b);
+	free_stack(head_a);
 	return (0);
 }
 
