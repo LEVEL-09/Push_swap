@@ -1,4 +1,3 @@
-#include "push_swap.h"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 12:12:49 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:09:14 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +51,17 @@ void	free_stack(t_list *head_a)
 		head_a = tmp;
 	}
 }
+void	free_args(char **args)
+{
+	char	**temp;
+
+	while (*args)
+	{
+		temp = args + 1;
+		free(*args);
+		args = temp;
+	}
+}
 
 t_list	*check(t_list *head_a, int ac, char **av, int i)
 {
@@ -63,17 +73,19 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 	{
 		args = ft_split(*(av + i++), ' ');
 		if (!args || !(*args))
-			return (write(2, "Error\n", 6), exit(1), NULL);
+			return (write(2, "Error\n", 6), free(args), free_stack(head_a), exit(1), NULL);
 		ptr = args;
 		while (*args)
 		{
-			validate_stack(*args); 
+			if (validate_stack(*args)) 
+				return (write(2, "Error\n", 6), free_args(args), free(ptr), free_stack(head_a), exit(1), NULL);
 			temp = ft_atoi((const char *)*args);
 			if (!head_a)
 				head_a = ft_lstnew(temp);
 			else
 			{
-				check_double(head_a, temp);
+				if (check_double(head_a, temp))
+					return (write(2, "Error\n", 6), free_args(args), free(ptr), free_stack(head_a), exit(1), NULL);
 				ft_lstadd_back(&head_a, ft_lstnew(temp));
 			}
 			free(*args);
@@ -111,4 +123,5 @@ int	push_swap(int ac, char **av)
 int main(int ac, char **av)
 {
 	push_swap(ac, av);
+	return (0);
 }

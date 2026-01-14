@@ -6,39 +6,41 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:59:40 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/14 11:07:58 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 15:50:12 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	validate_stack(char *av)
+int	validate_stack(char *av)
 {
 	int		i;
 
 	i = 0;
 	if (!av)
-		return (write(2, "Error\n", 6), free(av), exit(1));
+		return (1);
 	if (av[i] == '-' || av[i] == '+')
 		i++;
 	if (!av[i])
-		return (write(2, "Error\n", 6), free(av), exit(1));
+		return (1);
 	while (av[i])
 	{
 		if (!(ft_isdigit(av[i])))
-			return (write(2, "Error\n", 6), exit(1));
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
-void	check_double(t_list *head, int temp)
+int	check_double(t_list *head, int temp)
 {
 	while (head)
 	{
 		if (head->content == temp)
-			return (write(2, "Error\n", 6), free(head), exit(1));
+			return (1);
 		head = head->next;
 	}
+	return (0);
 }
 
 t_list	*ft_lstlast_before(t_list *lst)

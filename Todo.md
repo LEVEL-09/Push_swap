@@ -13,7 +13,7 @@
   * [✓] 500 random numbers
   * [✓] Fix push swap bug
 * [✓] Add printf to move functions
-* [ ] Free leaks
+* [✓] Free leaks
 * [✓] Handel overflow
 * [✓] Makefile execute file push swap
 * [ ] Fix norminette and libft
