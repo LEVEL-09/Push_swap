@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:18:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/10 16:33:43 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 21:25:13 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,28 @@ int	is_sort(t_list *head_a)
 		head_a = head_a->next;
 	}
 	return (0);
+}
+
+void	free_stack(t_list *head_a)
+{
+	t_list	*tmp;
+
+	while (head_a)
+	{
+		tmp = head_a->next;
+		free(head_a);
+		head_a = tmp;
+	}
+}
+
+void	free_args(char **args)
+{
+	char	**temp;
+
+	while (*args)
+	{
+		temp = args + 1;
+		free(*args);
+		args = temp;
+	}
 }

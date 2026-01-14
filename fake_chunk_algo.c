@@ -6,13 +6,24 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 09:35:28 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/14 09:33:41 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 22:32:18 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fake_chunk_stack_b(t_list **head_a, t_list **head_b, int size, int *count)
+void	fun_stack_b(int *i, int big_index, t_list **head_b, int *count)
+{
+	(*i) = big_index;
+	while ((*i)--)
+	{
+		rotate(head_b, 'x');
+		(*count)++;
+	}
+}
+
+void	fake_chunk_stack_b(t_list **head_a, t_list **head_b
+							, int size, int *count)
 {
 	int	i;
 	int	rr_r;
@@ -32,52 +43,49 @@ void	fake_chunk_stack_b(t_list **head_a, t_list **head_b, int size, int *count)
 			}
 		}
 		else
-		{
-			i = big_index;
-			while (i--)
-			{
-				rotate(head_b, 'x');
-				(*count)++;
-			}
-		}
+			fun_stack_b(&i, big_index, head_b, count);
 		push(head_a, head_b, 'x');
 		(*count)++;
 		fake_chunk_stack_b(head_a, head_b, --size, count);
 	}
 }
 
+void	fun_sort(t_list **head_a, t_list **head_b, t_chunk *chunky, int *count)
+{
+	if ((*head_a)->index <= (*chunky).chunk_start)
+	{
+		push(head_b, head_a, 'x');
+		(*count)++;
+		(*chunky).chunk_start++;
+	}
+	else if ((*head_a)->index <= (*chunky).chunk_start + (*chunky).chunk_end)
+	{
+		push(head_b, head_a, 'x');
+		(*count)++;
+		rotate(head_b, 'x');
+		(*count)++;
+		(*chunky).chunk_start++;
+	}
+	else
+	{
+		rotate(head_a, 'x');
+		(*count)++;
+	}
+}
+
 int	fake_chunk_sort(t_list **copy_a, t_list **head_b)
 {
+	t_list	*head_a;
 	t_chunk	chunky;
 	int		count;
-	t_list *head_a;
+
 	head_a = ft_lstmap(*copy_a);
-	
 	count = 0;
 	chunky.chunk_start = 0;
 	chunky.chunk_end = calculate_chunk_size(ft_lstsize(head_a));
 	while (head_a)
-	{
-		if (head_a->index <= chunky.chunk_start)
-		{
-			push(head_b, &head_a, 'x');
-			count++;
-			chunky.chunk_start++;
-		}
-		else if (head_a->index <= chunky.chunk_start + chunky.chunk_end)
-		{
-			push(head_b, &head_a, 'x');
-			count++;
-			rotate(head_b, 'x');
-			count++;
-			chunky.chunk_start++;
-		}
-		else
-		{
-			rotate(&head_a, 'x');
-			count++;
-		}
-	}
+		fun_sort(&head_a, head_b, &chunky, &count);
 	fake_chunk_stack_b(&head_a, head_b, ft_lstsize(*head_b), &count);
-	return (free_stack(head_a), count);
+	free_stack(head_a);
+	return (count);
 }

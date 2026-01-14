@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:39:51 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/13 21:44:49 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 22:08:30 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	reverse_chunk_sort(t_list **head_a, t_list **head_b)
 
 void	fake_or_not(t_list **head_a, t_list **head_b)
 {
-	int count;
+	int	count;
 
 	count = fake_chunk_sort(head_a, head_b);
 	if (count >= 700 && ft_lstsize(*head_a) == 100)

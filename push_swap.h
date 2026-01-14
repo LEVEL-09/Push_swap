@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/14 15:50:26 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 18:25:44 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@
 # include "Libft/libft.h"
 # include "Printf/libftprintf.h"
 
-# include <stdio.h> // test
-void	print_stacks(t_list *a, t_list *b);
-
 typedef struct t_chunk{
 	int	chunk_start;
 	int	chunk_end;
 }	t_chunk;
 
+void	free_args(char **args);
 int		is_sort(t_list *head_a);
 void	set_index(t_list *node);
 int		validate_stack(char *av);

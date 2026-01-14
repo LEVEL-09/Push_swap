@@ -1,6 +1,6 @@
-EXEC = push_swap
+NAME_1 = push_swap
 
-NAME = push_swap.a
+NAME_2 = push_swap.a
 
 SRCS = push_swap.c push_swap_util.c push_swap_moves.c sort_algo.c push_swap_util2.c \
 		chunk_algo.c fake_chunk_algo.c
@@ -11,14 +11,14 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(EXEC)
+all: $(NAME_1)
 
-$(NAME): $(OBJS)
+$(NAME_2): $(OBJS)
 	make bonus -C Libft/
 	make -C Printf/
-	ar rc $(NAME) $(OBJS)
+	ar rc $(NAME_2) $(OBJS)
 
-$(EXEC): $(NAME)
+$(NAME_1): $(NAME_2)
 	cc push_swap.a Libft/libft.a Printf/libftprintf.a -o push_swap
 
 %.o: %.c push_swap.h
@@ -32,8 +32,8 @@ clean:
 fclean: clean
 	make fclean -C Libft/
 	make fclean -C Printf/
-	rm -f $(NAME)
-	rm -f push_swap
+	rm -f $(NAME_2)
+	rm -f $(NAME_1)
 
 re: fclean all
 

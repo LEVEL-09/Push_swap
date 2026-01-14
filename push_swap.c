@@ -6,60 +6,38 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/14 16:09:14 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/14 22:07:59 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	print_stacks(t_list *a, t_list *b)
-// {
-// 	while (a || b)
-// 	{
-// 		if (a)
-// 		{
-// 			printf("%4d", a->content);
-// 			a = a->next;
-// 		}
-// 		else
-// 			printf("    ");
-
-// 		printf("    "); 
-
-// 		if (b)
-// 		{
-// 			printf("%4d", b->content);
-// 			b = b->next;
-// 		}
-// 		else
-// 			printf("    ");
-
-// 		printf("\n");
-// 	}
-// 	printf("----    ----\n");
-// 	printf("  a        b\n");
-// }
-
-void	free_stack(t_list *head_a)
+void	fun(t_list	**head_a, char **args, char **ptr)
 {
-	t_list	*tmp;
+	int	temp;
 
-	while (head_a)
+	if (validate_stack(*args))
 	{
-		tmp = head_a->next;
-		free(head_a);
-		head_a = tmp;
+		write(2, "Error\n", 6);
+		free_args(args);
+		free(ptr);
+		free_stack(*head_a);
+		exit(1);
 	}
-}
-void	free_args(char **args)
-{
-	char	**temp;
-
-	while (*args)
+	temp = ft_atoi((const char *)*args);
+	if (!(*head_a))
+		*head_a = ft_lstnew(temp);
+	else
 	{
-		temp = args + 1;
-		free(*args);
-		args = temp;
+		if (check_double(*head_a, temp))
+		{
+			write(2, "Error\n", 6);
+			free_args(args);
+			free(ptr);
+			free_stack(*head_a);
+			exit(1);
+		}
+		ft_lstadd_back(head_a, ft_lstnew(temp));
 	}
 }
 
@@ -67,27 +45,21 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 {
 	char	**args;
 	char	**ptr;
-	int		temp;
 
 	while (i < ac)
 	{
 		args = ft_split(*(av + i++), ' ');
 		if (!args || !(*args))
-			return (write(2, "Error\n", 6), free(args), free_stack(head_a), exit(1), NULL);
+		{
+			write(2, "Error\n", 6);
+			free(args);
+			free_stack(head_a);
+			exit(1);
+		}
 		ptr = args;
 		while (*args)
 		{
-			if (validate_stack(*args)) 
-				return (write(2, "Error\n", 6), free_args(args), free(ptr), free_stack(head_a), exit(1), NULL);
-			temp = ft_atoi((const char *)*args);
-			if (!head_a)
-				head_a = ft_lstnew(temp);
-			else
-			{
-				if (check_double(head_a, temp))
-					return (write(2, "Error\n", 6), free_args(args), free(ptr), free_stack(head_a), exit(1), NULL);
-				ft_lstadd_back(&head_a, ft_lstnew(temp));
-			}
+			fun(&head_a, args, ptr);
 			free(*args);
 			args++;
 		}
@@ -115,12 +87,11 @@ int	push_swap(int ac, char **av)
 		sort_five_elements(&head_a, &head_b);
 	else
 		fake_or_not(&head_a, &head_b);
-	// print_stacks(head_a, head_b);
 	free_stack(head_a);
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	push_swap(ac, av);
 	return (0);

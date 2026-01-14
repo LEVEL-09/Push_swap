@@ -16,6 +16,6 @@
 * [✓] Free leaks
 * [✓] Handel overflow
 * [✓] Makefile execute file push swap
-* [ ] Fix norminette and libft
+* [✓] Fix norminette and libft
 * [ ] Create checker
 * [ ] Add in checker rr ss rrr
