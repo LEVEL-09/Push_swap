@@ -6,7 +6,8 @@ SRCS = push_swap.c push_swap_util.c push_swap_moves.c sort_algo.c push_swap_util
 		chunk_algo.c fake_chunk_algo.c
 
 SRCB = bonus/checker_bonus.c bonus/get_next_line_bonus.c bonus/get_next_line_utils_bonus.c \
-		bonus/checker_util_bonus.c bonus/checker_util2_bonus.c
+		bonus/checker_util_bonus.c bonus/checker_util2_bonus.c bonus/checker_util3.5_bonus.c \
+		bonus/checker_util3_bonus.c bonus/checker_moves_bonus.c
 
 LSRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c \
 		ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c \

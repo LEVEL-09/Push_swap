@@ -1,6 +1,8 @@
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
+#include <stdio.h> // test
+
 # include "get_next_line_bonus.h"
 # include "../Printf/libftprintf.h"
 # include "../Libft/libft.h"
@@ -12,5 +14,22 @@ int		validate_stack(char *av);
 void	free_stack(t_list *head_a);
 t_list	*ft_lstlast_before(t_list *lst);
 int		check_double(t_list *head, int temp);
+
+int     sa(char *s);
+int     sb(char *s);
+int     ss(char *s);
+int     pa(char *s);
+int     pb(char *s);
+int     ra(char *s);
+int     rb(char *s);
+int     rr(char *s);
+int     rra(char *s);
+int     rrb(char *s);
+int     rrr(char *s);
+
+void	swap(t_list *element, char c);
+void	rotate(t_list **head, char c);
+void	reverse_rotate(t_list **head, char c);
+void	push(t_list **dst, t_list **src, char c);
 
 #endif

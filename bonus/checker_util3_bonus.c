@@ -1,44 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_util2_bonus.c                              :+:      :+:    :+:   */
+/*   checker_util3_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 18:02:07 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/15 21:55:08 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2026/01/15 21:42:10 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2026/01/15 21:51:06 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	free_stack(t_list *head_a)
+int	sa(char	*s)
 {
-	t_list	*tmp;
-
-	while (head_a)
-	{
-		tmp = head_a->next;
-		free(head_a);
-		head_a = tmp;
-	}
+	if (s[0] == 's' && s[1] == 'a' && s[2] == '\n')
+		return (1);
+	return (0);
 }
 
-void	free_args(char **args)
+int	sb(char	*s)
 {
-	char	**temp;
-
-	while (*args)
-	{
-		temp = args + 1;
-		free(*args);
-		args = temp;
-	}
+	if (s[0] == 's' && s[1] == 'b' && s[2] == '\n')
+		return (1);
+	return (0);
 }
 
-int	rrr(char *s)
+int	ss(char	*s)
 {
-	if (s[0] == 'r' && s[1] == 'r' && s[2] == 'r' && s[3] == '\n')
+	if (s[0] == 's' && s[1] == 's' && s[2] == '\n')
+		return (1);
+	return (0);
+}
+
+int	pa(char	*s)
+{
+	if (s[0] == 'p' && s[1] == 'a' && s[2] == '\n')
+		return (1);
+	return (0);
+}
+
+int	pb(char	*s)
+{
+	if (s[0] == 'p' && s[1] == 'b' && s[2] == '\n')
 		return (1);
 	return (0);
 }
