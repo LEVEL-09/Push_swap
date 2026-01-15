@@ -32,6 +32,7 @@
 *.exe
 *.out
 push_swap
+checker
 *.app
 *.i*86
 *.x86_64
