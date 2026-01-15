@@ -19,3 +19,4 @@
 * [✓] Fix norminette and libft
 * [ ] Create checker
 * [ ] Add in checker rr ss rrr
+* [ ] Change name to bonus
