@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/15 18:05:45 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2026/01/15 02:29:57 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2026/01/15 18:05:12 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void	fun(t_list	**head_a, char **args, char **ptr)
 {
@@ -68,7 +68,7 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 	return (head_a);
 }
 
-int	push_swap(int ac, char **av)
+int	checker(int ac, char **av)
 {
 	t_list	*head_a;
 	t_list	*head_b;
@@ -84,18 +84,12 @@ int	push_swap(int ac, char **av)
 		free_stack(head_a);
 		return (0);
 	}
-	if (ft_lstsize(head_a) == 3 || ft_lstsize(head_a) == 2)
-		sort_three_elements(&head_a);
-	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
-		sort_five_elements(&head_a, &head_b);
-	else
-		fake_or_not(&head_a, &head_b);
 	free_stack(head_a);
 	return (0);
 }
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	push_swap(ac, av);
+	checker(ac, av);
 	return (0);
 }
