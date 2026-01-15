@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:09:15 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/23 18:32:07 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:38:48 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_check(char *s, char c)
 	return (-1);
 }
 
-char	*ft_substr(char *str)
+char	*ft_get_substr(char *str)
 {
 	int		i;
 	char	*p;
@@ -76,7 +76,7 @@ char	*ft_subjoin(char *str)
 	i = ft_check(str, '\n');
 	if (i == -1)
 		i = 0;
-	len = ft_strlen(str + i);
+	len = ft_get_strlen(str + i);
 	ptr = malloc(len + 1);
 	if (!ptr)
 		return (free(str), NULL);
@@ -104,7 +104,7 @@ char	*get_next_line(int fd)
 		buf[fill] = '\0';
 		if (fill == 0 && ft_check(line, '\n') == -1)
 			return (fill_zero(&line, &buf, 0));
-		line = ft_strjoin(line, buf);
+		line = ft_get_strjoin(line, buf);
 		if (ft_check(line, '\n') != -1)
 			return (subs(&line, &buf));
 	}

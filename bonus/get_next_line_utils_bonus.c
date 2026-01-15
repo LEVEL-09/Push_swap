@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:08:12 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2025/12/23 13:14:32 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:38:48 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*subs(char **line, char **buf)
 {
-	*buf = ft_substr(*line);
+	*buf = ft_get_substr(*line);
 	*line = ft_subjoin(*line);
 	return (*buf);
 }
@@ -34,7 +34,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-size_t	ft_strlen(char *s)
+size_t	ft_get_strlen(char *s)
 {
 	size_t	i;
 
@@ -48,15 +48,15 @@ static char	*ft_strdup(char *s)
 {
 	char	*p;
 
-	p = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	p = malloc(sizeof(char) * (ft_get_strlen(s) + 1));
 	if (!p)
 		return (free(s), NULL);
-	ft_strncpy(p, s, ft_strlen(s) + 1);
+	ft_strncpy(p, s, ft_get_strlen(s) + 1);
 	free(s);
 	return (p);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_get_strjoin(char *s1, char *s2)
 {
 	char	*ptr;
 
@@ -64,11 +64,11 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (ft_strdup(s2));
 	if (!s2)
 		return (ft_strdup(s1));
-	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ptr = malloc(sizeof(char) * (ft_get_strlen(s1) + ft_get_strlen(s2) + 1));
 	if (!ptr)
 		return (free(s1), free(s2), NULL);
-	ft_strncpy(ptr, s1, ft_strlen(s1));
-	ft_strncpy(ptr + ft_strlen(s1), s2, ft_strlen(s2) + 1);
+	ft_strncpy(ptr, s1, ft_get_strlen(s1));
+	ft_strncpy(ptr + ft_get_strlen(s1), s2, ft_get_strlen(s2) + 1);
 	free(s1);
 	free(s2);
 	return (ptr);
