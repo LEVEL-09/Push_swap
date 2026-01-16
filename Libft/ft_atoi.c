@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:29:45 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/14 11:08:51 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:43:34 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,19 @@ static int	check_sp(char s)
 	return (0);
 }
 
-static int	ft_overflow(int neg, int cont)
+static int	ft_overflow(int neg, int cont, t_list **head_a, char **s)
 {
 	if (cont == -2147483648 && neg == -1)
 		return (-2147483648);
-	return (write(2, "Error\n", 6), exit(1), 1);
+	free_stack(*head_a);
+	free(*s);
+	free(s);
+	write(2, "Error\n", 6);
+	exit(1);
+	return (1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str, t_list	**head_a, char **args)
 {
 	int		i;
 	int		neg;
@@ -50,7 +55,7 @@ int	ft_atoi(const char *str)
 		cont *= 10;
 		cont = cont + (str[i] - '0');
 		if (overflow != cont / 10)
-			return (ft_overflow(neg, cont));
+			return (ft_overflow(neg, cont, head_a, args));
 		i++;
 	}
 	return (cont * neg);

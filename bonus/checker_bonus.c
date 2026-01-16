@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/16 02:43:02 by mkhoubaz         ###   ########.fr       */
+/*   Created: 2026/01/15 02:29:57 by mkhoubaz          #+#    #+#             */
+/*   Updated: 2026/01/16 03:14:25 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void	fun(t_list	**head_a, char **args, char **ptr)
 {
@@ -68,10 +68,29 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 	return (head_a);
 }
 
-int	push_swap(int ac, char **av)
+int	is_move(char	*s, t_list **head_a, t_list **head_b)
+{
+	if ((sa(s) && swap(*head_a, 'x'))
+		|| (sb(s) && swap(*head_b, 'x'))
+		|| (ss(s) && swap(*head_a, 'x') && swap(*head_b, 'x'))
+		|| (pa(s) && push(head_a, head_b, 'x'))
+		|| (pb(s) && push(head_b, head_a, 'x'))
+		|| (ra(s) && rotate(head_a, 'x'))
+		|| (rb(s) && rotate(head_b, 'x'))
+		|| (rr(s) && rotate(head_a, 'x') && rotate(head_b, 'x'))
+		|| (rra(s) && reverse_rotate(head_a, 'x'))
+		|| (rrb(s) && reverse_rotate(head_b, 'x'))
+		|| (rrr(s) && reverse_rotate(head_a, 'x')
+			&& reverse_rotate(head_b, 'x')))
+		return (1);
+	return (0);
+}
+
+int	checker(int ac, char **av)
 {
 	t_list	*head_a;
 	t_list	*head_b;
+	char	*line;
 
 	head_a = NULL;
 	head_b = NULL;
@@ -79,23 +98,25 @@ int	push_swap(int ac, char **av)
 		return (0);
 	head_a = check(head_a, ac, av, 1);
 	set_index(head_a);
-	if (!is_sort(head_a))
+	line = get_next_line(0);
+	while (line)
 	{
-		free_stack(head_a);
-		return (0);
+		if (!(is_move(line, &head_a, &head_b)))
+			not_move(&head_a, &head_b, line);
+		free(line);
+		line = get_next_line(0);
 	}
-	if (ft_lstsize(head_a) == 3 || ft_lstsize(head_a) == 2)
-		sort_three_elements(&head_a);
-	else if (ft_lstsize(head_a) == 5 || ft_lstsize(head_a) == 4)
-		sort_five_elements(&head_a, &head_b);
+	if (!is_sort(head_a) && !head_b)
+		write(1, "OK\n", 3);
 	else
-		fake_or_not(&head_a, &head_b);
+		write(1, "KO\n", 3);
 	free_stack(head_a);
+	free_stack(head_b);
 	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	push_swap(ac, av);
+	checker(ac, av);
 	return (0);
 }
