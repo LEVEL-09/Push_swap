@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:32:43 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/15 18:05:45 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:43:02 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	fun(t_list	**head_a, char **args, char **ptr)
 		free_stack(*head_a);
 		exit(1);
 	}
-	temp = ft_atoi((const char *)*args);
+	temp = ft_atoi(*args, head_a, args);
 	if (!(*head_a))
 		*head_a = ft_lstnew(temp);
 	else
