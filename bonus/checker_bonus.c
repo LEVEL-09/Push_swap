@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 02:29:57 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/15 22:40:39 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:09:35 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,64 +70,19 @@ t_list	*check(t_list *head_a, int ac, char **av, int i)
 
 int	is_move(char	*s, t_list **head_a, t_list **head_b)
 {
-	if (sa(s))
-	{
-		swap(*head_a, 'x');
+	if ((sa(s) && swap(*head_a, 'x'))
+		|| (sb(s) && swap(*head_b, 'x'))
+		|| (ss(s) && swap(*head_a, 'x') && swap(*head_b, 'x'))
+		|| (pa(s) && push(head_a, head_b, 'x'))
+		|| (pb(s) && push(head_b, head_a, 'x'))
+		|| (ra(s) && rotate(head_a, 'x'))
+		|| (rb(s) && rotate(head_b, 'x'))
+		|| (rr(s) && rotate(head_a, 'x') && rotate(head_b, 'x'))
+		|| (rra(s) && reverse_rotate(head_a, 'x'))
+		|| (rrb(s) && reverse_rotate(head_b, 'x'))
+		|| (rrr(s) && reverse_rotate(head_a, 'x')
+			&& reverse_rotate(head_b, 'x')))
 		return (1);
-	}
-	else if (sb(s))
-	{
-		swap(*head_b, 'x');
-		return (1);
-	}
-	else if (ss(s))
-	{
-		swap(*head_a, 'x');
-		swap(*head_b, 'x');
-		return (1);
-	}
-	else if (pa(s))
-	{
-		push(head_a, head_b, 'x');
-		return (1);
-	}
-	else if (pb(s))
-	{
-		push(head_b, head_a, 'x');
-		return (1);
-	}
-	else if (ra(s))
-	{
-		rotate(head_a, 'x');
-		return (1);
-	}
-	else if (rb(s))
-	{
-		rotate(head_b, 'x');
-		return (1);
-	}
-	else if (rr(s))
-	{
-		rotate(head_a, 'x');
-		rotate(head_b, 'x');
-		return (1);
-	}
-	else if (rra(s))
-	{
-		reverse_rotate(head_a, 'x');
-		return (1);
-	}
-	else if (rrb(s))
-	{
-		reverse_rotate(head_b, 'x');
-		return (1);
-	}
-	else if (rrr(s))
-	{
-		reverse_rotate(head_a, 'x');
-		reverse_rotate(head_b, 'x');
-		return (1);
-	}
 	return (0);
 }
 
@@ -143,7 +98,7 @@ int	checker(int ac, char **av)
 		return (0);
 	head_a = check(head_a, ac, av, 1);
 	set_index(head_a);
-	line = get_next_line(1);
+	line = get_next_line(0);
 	while (line)
 	{
 		if (!(is_move(line, &head_a, &head_b)))
@@ -154,21 +109,17 @@ int	checker(int ac, char **av)
 			exit(1);
 		}
 		free(line);
-		line = get_next_line(1);
+		line = get_next_line(0);
 	}
-	if (!is_sort(head_a))
-	{
+	if (!is_sort(head_a) && !head_b)
 		write(1, "OK\n", 3);
-		free_stack(head_a);
-		return (0);
-	}
 	else
 		write(1, "KO\n", 3);
 	free_stack(head_a);
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	checker(ac, av);
 	return (0);

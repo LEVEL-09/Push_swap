@@ -1,8 +1,6 @@
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
-#include <stdio.h> // test
-
 # include "get_next_line_bonus.h"
 # include "../Printf/libftprintf.h"
 # include "../Libft/libft.h"
@@ -27,9 +25,9 @@ int     rra(char *s);
 int     rrb(char *s);
 int     rrr(char *s);
 
-void	swap(t_list *element, char c);
-void	rotate(t_list **head, char c);
-void	reverse_rotate(t_list **head, char c);
-void	push(t_list **dst, t_list **src, char c);
+int		swap(t_list *element, char c);
+int		rotate(t_list **head, char c);
+int		reverse_rotate(t_list **head, char c);
+int		push(t_list **dst, t_list **src, char c);
 
 #endif
