@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 03:00:46 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/16 03:01:10 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 03:07:39 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		validate_stack(char *av);
 void	free_stack(t_list *head_a);
 t_list	*ft_lstlast_before(t_list *lst);
 int		check_double(t_list *head, int temp);
-void	not_move(t_list **head_a, t_list **head_b);
+void	not_move(t_list **head_a, t_list **head_b, char *line);
 
 int		sa(char *s);
 int		sb(char *s);
