@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 02:29:57 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/16 02:44:40 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:58:24 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,7 @@ int	checker(int ac, char **av)
 	while (line)
 	{
 		if (!(is_move(line, &head_a, &head_b)))
-		{
-			free_stack(head_a);
-			free_stack(head_b);
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			not_move(&head_a, &head_b);
 		free(line);
 		line = get_next_line(0);
 	}

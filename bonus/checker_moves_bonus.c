@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:02:41 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/16 01:05:36 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:59:58 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ int	reverse_rotate(t_list **head, char c)
 		ft_printf("rr%c\n", c);
 	return (1);
 }
-

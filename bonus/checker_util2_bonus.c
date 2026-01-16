@@ -6,7 +6,7 @@
 /*   By: mkhoubaz <mkhoubaz@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:02:07 by mkhoubaz          #+#    #+#             */
-/*   Updated: 2026/01/15 21:55:08 by mkhoubaz         ###   ########.fr       */
+/*   Updated: 2026/01/16 02:59:22 by mkhoubaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,12 @@ int	rrr(char *s)
 	if (s[0] == 'r' && s[1] == 'r' && s[2] == 'r' && s[3] == '\n')
 		return (1);
 	return (0);
+}
+
+void	not_move(t_list **head_a, t_list **head_b)
+{
+	free_stack(*head_a);
+	free_stack(*head_b);
+	write(2, "Error\n", 6);
+	exit(1);
 }
