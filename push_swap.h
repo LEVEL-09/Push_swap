@@ -16,7 +16,8 @@
 # include "Libft/libft.h"
 # include "Printf/libftprintf.h"
 
-typedef struct t_chunk{
+typedef struct t_chunk
+{
 	int	chunk_start;
 	int	chunk_end;
 }	t_chunk;

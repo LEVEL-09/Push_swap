@@ -24,7 +24,7 @@ void	fun(t_list	**head_a, char **args, char **ptr)
 		free_stack(*head_a);
 		exit(1);
 	}
-	temp = ft_atoi(*args, head_a, args);
+	temp = ft_atoi(*args, head_a, ptr);
 	if (!(*head_a))
 		*head_a = ft_lstnew(temp);
 	else

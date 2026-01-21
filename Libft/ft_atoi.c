@@ -22,11 +22,15 @@ static int	check_sp(char s)
 
 static int	ft_overflow(int neg, int cont, t_list **head_a, char **s)
 {
+	char	**p;
+
 	if (cont == -2147483648 && neg == -1)
 		return (-2147483648);
+	p = s;
 	free_stack(*head_a);
-	free(*s);
-	free(s);
+	while (*s)
+		free(*s++);
+	free(p);
 	write(2, "Error\n", 6);
 	exit(1);
 	return (1);
