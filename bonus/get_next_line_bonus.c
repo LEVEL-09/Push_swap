@@ -87,12 +87,14 @@ char	*ft_subjoin(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	char		*line;
 	char		*buf;
+	char		*tmp;
 	ssize_t		fill;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
+	line = NULL;
 	while (1)
 	{
 		buf = malloc((size_t)BUFFER_SIZE + 1);
@@ -106,7 +108,8 @@ char	*get_next_line(int fd)
 			return (fill_zero(&line, &buf, 0));
 		line = ft_get_strjoin(line, buf);
 		if (ft_check(line, '\n') != -1)
-			return (subs(&line, &buf));
+			break ;
 	}
-	return (NULL);
+	tmp = subs(&line, &buf);
+	return (free(line), tmp);
 }
